@@ -1,8 +1,10 @@
+# 附录6、pycoin
+
 最初由Richard Kiss编写和维护的Python库pycoin是一个基于Python的库，支持对比特币密钥和交易进行操作，甚至支持足够的脚本语言来适当地处理非标准交易。
 
 pycoin库支持Python 2（2.7.x）和Python 3（3.3之后），并附带一些方便的命令行实用程序ku和tx。
 
-# 实用工具（KU）
+## 1.实用工具（KU）
 
 命令行实用程序ku（“密钥实用程序”）是用于操纵密钥的瑞士军刀。 它支持BIP-32键，WIF和地址（比特币和代币）。 以下是一些例子。
 
@@ -10,6 +12,7 @@ pycoin库支持Python 2（2.7.x）和Python 3（3.3之后），并附带一些�
 
 ```
 $ ku create
+
 
 input           : create
 network         : Bitcoin
@@ -39,15 +42,16 @@ hash160         : 9d9c609247174ae323acfc96c852753fe3c8819d
  uncompressed   : 8870d869800c9b91ce1eb460f4c60540f87c15d7
 Bitcoin address : 1FNNRQ5fSv1wBi5gyfVBs2rkNheMGt86sp
  uncompressed   : 1DSS5isnH4FsVaLVjeVXewVSpfqktdiQAM
+
 ```
 
 从密码短语创建一个BIP-32密钥：
 
-**警告**  
- 这个例子中的密码很容易猜到。
+**警告** 这个例子中的密码很容易猜到。
 
 ```
 $ ku P:foo
+
 
 input           : P:foo
 network         : Bitcoin
@@ -77,6 +81,7 @@ hash160         : 5d353a2ecdb262477172852d57a3f11de0c19286
  uncompressed   : e5bd3a7e6cb62b4c820e51200fb1c148d79e67da
 Bitcoin address : 19Vqc8uLTfUonmxUEZac7fz1M5c5ZZbAii
  uncompressed   : 1MwkRkogzBRMehBntgcq2aJhXCXStJTXHT
+
 ```
 
 获取JSON信息：
@@ -105,6 +110,7 @@ $ ku P:foo -P -j
    "public_pair_y": "58994218069605424278320703250689780154785099509277691723126325051200459038290",
    "key_pair_as_sec": "02b4e599dfa44555a4ed38bcfff0071d5af676a86abf123c5b4b4e8e67a0b0b13f"
 }
+
 ```
 
 公共BIP32密钥：
@@ -112,6 +118,7 @@ $ ku P:foo -P -j
 ```
 $ ku -w -P P:foo
 xpub661MyMwAqRbcFVF9ULcqLdsEa5WnCCugQAcgNd9iEMQ31tgH6u4DLQWoQayvtSVYFvXz2vPPpbXE1qpjoUFidhjFj82pVShWu9curWmb2zy
+
 ```
 
 生成子项：
@@ -119,6 +126,7 @@ xpub661MyMwAqRbcFVF9ULcqLdsEa5WnCCugQAcgNd9iEMQ31tgH6u4DLQWoQayvtSVYFvXz2vPPpbXE
 ```
 $ ku -w -s3/2 P:foo
 xprv9wTErTSkjVyJa1v4cUTFMFkWMe5eu8ErbQcs9xajnsUzCBT7ykHAwdrxvG3g3f6BFk7ms5hHBvmbdutNmyg6iogWKxx6mefEw4M8EroLgKj
+
 ```
 
 硬化子键：
@@ -126,6 +134,7 @@ xprv9wTErTSkjVyJa1v4cUTFMFkWMe5eu8ErbQcs9xajnsUzCBT7ykHAwdrxvG3g3f6BFk7ms5hHBvmb
 ```
 $ ku -w -s3/2H P:foo
 xprv9wTErTSu5AWGkDeUPmqBcbZWX1xq85ZNX9iQRQW9DXwygFp7iRGJo79dsVctcsCHsnZ3XU3DhsuaGZbDh8iDkBN45k67UKsJUXM1JfRCdn1
+
 ```
 
 WIF:
@@ -133,6 +142,7 @@ WIF:
 ```
 $ ku -W P:foo
 L26c3H6jEPVSqAr1usXUp9qtQJw6NHgApq6Ls4ncyqtsvcq2MwKH
+
 ```
 
 地址：
@@ -140,6 +150,7 @@ L26c3H6jEPVSqAr1usXUp9qtQJw6NHgApq6Ls4ncyqtsvcq2MwKH
 ```
 $ ku -a P:foo
 19Vqc8uLTfUonmxUEZac7fz1M5c5ZZbAii
+
 ```
 
 生成一堆子项：
@@ -152,6 +163,7 @@ xprv9xWkBDfyBXmZqdXA8y4SWqfBdy71gSW9sjx9JpCiJEiBwSMQyRxan6srXUPBtj3PTxQFkZJAiwoU
 xprv9xWkBDfyBXmZsA85GyWj9uYPyoQv826YAadKWMaaEosNrFBKgj2TqWuiWY3zuqxYGpHfv9cnGj5P7e8EskpzKL1Y8Gk9aX6QbryA5raK73p
 xprv9xWkBDfyBXmZv2q3N66hhZ8DAcEnQDnXML1J62krJAcf7Xb1HJwuW2VMJQrCofY2jtFXdiEY8UsRNJfqK6DAdyZXoMvtaLHyWQx3FS4A9zw
 xprv9xWkBDfyBXmZw4jEYXUHYc9fT25k9irP87n2RqfJ5bqbjKdT84Mm7Wtc2xmzFuKg7iYf7XFHKkSsaYKWKJbR54bnyAD9GzjUYbAYTtN4ruo
+
 ```
 
 生成相应的地址：
@@ -164,6 +176,7 @@ $ ku P:foo -s 0/0-5 -a
 116AXZc4bDVQrqmcinzu4aaPdrYqvuiBEK
 1Cz2rTLjRM6pMnxPNrRKp9ZSvRtj5dDUML
 1WstdwPnU6HEUPme1DQayN9nm6j7nDVEM
+
 ```
 
 生成相应的WIF：
@@ -176,6 +189,7 @@ L4B3ygQxK6zH2NQGxLDee2H9v4Lvwg14cLJW7QwWPzCtKHdWMaQz
 L2L2PZdorybUqkPjrmhem4Ax5EJvP7ijmxbNoQKnmTDMrqemY8UF
 L2oD6vA4TUyqPF8QG4vhUFSgwCyuuvFZ3v8SKHYFDwkbM765Nrfd
 KzChTbc3kZFxUSJ3Kt54cxsogeFAD9CCM4zGB22si8nfKcThQn8C
+
 ```
 
 通过选择一个BIP32字符串（与子项0/3对应的字符串）来检查它是否工作：
@@ -185,6 +199,7 @@ $ ku -W xprv9xWkBDfyBXmZsA85GyWj9uYPyoQv826YAadKWMaaEosNrFBKgj2TqWuiWY3zuqxYGpHf
 L2L2PZdorybUqkPjrmhem4Ax5EJvP7ijmxbNoQKnmTDMrqemY8UF
 $ ku -a xprv9xWkBDfyBXmZsA85GyWj9uYPyoQv826YAadKWMaaEosNrFBKgj2TqWuiWY3zuqxYGpHfv9cnGj5P7e8EskpzKL1Y8Gk9aX6QbryA5raK73p
 116AXZc4bDVQrqmcinzu4aaPdrYqvuiBEK
+
 ```
 
 是的，看起来很熟悉
@@ -193,6 +208,7 @@ $ ku -a xprv9xWkBDfyBXmZsA85GyWj9uYPyoQv826YAadKWMaaEosNrFBKgj2TqWuiWY3zuqxYGpHf
 
 ```
 $ ku 1
+
 
 input           : 1
 network         : Bitcoin
@@ -212,12 +228,14 @@ hash160         : 751e76e8199196d454941c45d1b3a323f1433bd6
  uncompressed   : 91b24bf9f5288532960ac687abb035127b1d28a5
 Bitcoin address : 1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH
  uncompressed   : 1EHNa6Q4Jz2uvNExL497mE43ikXhwF6kZm
+
 ```
 
 莱特币版本：
 
 ```
 $ ku -nL 1
+
 
 input            : 1
 network          : Litecoin
@@ -237,6 +255,7 @@ hash160          : 751e76e8199196d454941c45d1b3a323f1433bd6
  uncompressed    : 91b24bf9f5288532960ac687abb035127b1d28a5
 Litecoin address : LVuDpNCSSj6pQ7t9Pv6d6sUkLKoqDEVUnJ
  uncompressed    : LYWKqJhtPeGyBAw7WC8R3F7ovxtzAiubdM
+
 ```
 
 狗狗币WIF:
@@ -244,12 +263,14 @@ Litecoin address : LVuDpNCSSj6pQ7t9Pv6d6sUkLKoqDEVUnJ
 ```
 $ ku -nD -W 1
 QNcdLVw8fHkixm6NNyN6nVwxKek4u7qrioRbQmjxac5TVoTtZuot
+
 ```
 
 从公共对（在Testnet）：
 
 ```
 $ ku -nT 55066263022277343669578718895168534326250603453777594175500187360389116729240,even
+
 
 input                   : 550662630222773436695787188951685343262506034537775941755001873603
                             89116729240,even
@@ -266,6 +287,7 @@ hash160                 : 751e76e8199196d454941c45d1b3a323f1433bd6
  uncompressed           : 91b24bf9f5288532960ac687abb035127b1d28a5
 Bitcoin testnet address : mrCDrCybB6J1vRfbwM5hemdJz73FwDBC8r
  uncompressed           : mtoKs9V381UAhUia3d7Vb9GNak8Qvmcsme
+
 ```
 
 从hash160:
@@ -273,10 +295,12 @@ Bitcoin testnet address : mrCDrCybB6J1vRfbwM5hemdJz73FwDBC8r
 ```
 $ ku 751e76e8199196d454941c45d1b3a323f1433bd6
 
+
 input           : 751e76e8199196d454941c45d1b3a323f1433bd6
 network         : Bitcoin
 hash160         : 751e76e8199196d454941c45d1b3a323f1433bd6
 Bitcoin address : 1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH
+
 ```
 
 作为狗狗币地址:
@@ -284,19 +308,21 @@ Bitcoin address : 1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH
 ```
 $ ku -nD 751e76e8199196d454941c45d1b3a323f1433bd6
 
+
 input            : 751e76e8199196d454941c45d1b3a323f1433bd6
 network          : Dogecoin
 hash160          : 751e76e8199196d454941c45d1b3a323f1433bd6
 Dogecoin address : DFpN6QqFfUm3gKNaxN6tNcab1FArL9cZLE
+
 ```
 
-# 交易实用程序（TX）
+## 2.交易实用程序（TX）
 
 命令行实用程序tx将以人类可读的形式显示交易，从pycoin的交易缓存或Web服务获取基础交易（当前支持blockchain.info和biteasy.com），合并交易，添加或删除输入或输出，以及签署交易。
 
-以下是一些例子。
+以下是一些例子。
 
-查看着名的“皮萨”交易：
+查看着名的“皮萨”交易：
 
 ```
 $ tx 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a
@@ -309,6 +335,7 @@ usage: tx [-h] [-t TRANSACTION_VERSION] [-l LOCK_TIME] [-n NETWORK] [-a]
           [-b BITCOIND_URL] [-o path-to-output-file]
           argument [argument ...]
 tx: error: can't find Tx with id 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a
+
 ```
 
 哎呀！ 我们没有设置Web服务。 现在我们来做：
@@ -317,11 +344,12 @@ tx: error: can't find Tx with id 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833
 $ PYCOIN_CACHE_DIR=~/.pycoin_cache
 $ PYCOIN_SERVICE_PROVIDERS=BLOCKR_IO:BLOCKCHAIN_INFO:BITEASY:BLOCKEXPLORER
 $ export PYCOIN_CACHE_DIR PYCOIN_SERVICE_PROVIDERS
+
 ```
 
 这不是自动完成的，所以命令行工具不会泄漏潜在的关于您对第三方网站感兴趣的交易的私人信息。 如果您不在乎，可以将这些行放入.profile。
 
-让我们再试一次：
+让我们再试一次：
 
 ```
 $ tx 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a
@@ -336,7 +364,9 @@ Total output 10000000.00000 mBTC
 including unspents in hex dump since transaction not fully signed
 010000000141045e0ab2b0b82cdefaf9e9a8ca9ec9df17673d6a74e274d0c73ae77d3f131e000000004a493046022100a7f26eda874931999c90f87f01ff1ffc76bcd058fe16137e0e63fdb6a35c2d78022100a61e9199238eb73f07c8f209504c84b80f03e30ed8169edd44f80ed17ddf451901ffffffff010010a5d4e80000001976a9147ec1003336542cae8bded8909cdd6b5e48ba0ab688ac00000000
 
+
 ** can't validate transaction as source transactions missing
+
 ```
 
 出现最后一行是为了验证交易的签名，您技术上需要源代码交易。 所以我们来添加-a来增加源信息的交易：
@@ -356,12 +386,15 @@ Total input  10000000.00000 mBTC
 Total output 10000000.00000 mBTC
 Total fees        0.00000 mBTC
 
+
 010000000141045e0ab2b0b82cdefaf9e9a8ca9ec9df17673d6a74e274d0c73ae77d3f131e000000004a493046022100a7f26eda874931999c90f87f01ff1ffc76bcd058fe16137e0e63fdb6a35c2d78022100a61e9199238eb73f07c8f209504c84b80f03e30ed8169edd44f80ed17ddf451901ffffffff010010a5d4e80000001976a9147ec1003336542cae8bded8909cdd6b5e48ba0ab688ac00000000
 
+
 all incoming transaction values validated
+
 ```
 
-现在，我们来看一下特定地址（UTXO）的未使用输出。 在块＃1中，我们看到一个钱币交易到12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX。 让我们用fetch\_unspent来查找这个地址中的所有钱币：
+现在，我们来看一下特定地址（UTXO）的未使用输出。 在块＃1中，我们看到一个钱币交易到12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX。 让我们用fetch_unspent来查找这个地址中的所有钱币：
 
 ```
 $ fetch_unspent 12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX
@@ -377,13 +410,6 @@ dfdf0b375a987f17056e5e919ee6eadd87dad36c09c4016d4a03cea15e5c05e3/1/76a914119b098
 cb2679bfd0a557b2dc0d8a6116822f3fcbe281ca3f3e18d3855aa7ea378fa373/0/76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac/1337
 d6be34ccf6edddc3cf69842dce99fe503bf632ba2c2adb0f95c63f6706ae0c52/1/76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac/2000000
     0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098/0/410496b538e853519c726a2c91e61ec11600ae1390813a627c66fb8be7947be63c52da7589379515d4e0a604f8141781e62294721166bf621e73a82cbf2342c858eeac/5000000000
+
 ```
-
-
-
-
-
-
-
-
 

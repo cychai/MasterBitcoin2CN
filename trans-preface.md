@@ -22,7 +22,7 @@
 
 本书部分段落内容参考摘录了《精通比特币》知笔墨版本，在此特别声明并致谢。
 
-本书附录1比特币白皮书全文摘自巴比特 《比特币白皮书：一种点对点的电子现金系统》，在此特别声明并致谢。
+本书附录1比特币白皮书全文摘自[巴比特](http://www.8btc.com/wiki/bitcoin-a-peer-to-peer-electronic-cash-system) 《比特币白皮书：一种点对点的电子现金系统》，在此特别声明并致谢。
 
 以下朋友对本书做出巨大贡献：
 
@@ -48,4 +48,18 @@ Robbie_英语翻译：第4章审核校对
 
 即便如此，当前版本还可能存在部分错误，欢迎读者在github上提交勘误，也可以发至邮箱：yuntianming@aliyun.com
 
-乔延宏 2017.11.11
+
+
+乔延宏
+2017.11.11
+
+
+
+
+本书电子版链接：
+
+《master bitcoin 2nd》英文原版链接
+https://github.com/bitcoinbook/bitcoinbook
+
+第二版中文翻译版初稿链接：
+https://github.com/tianmingyun/MasterBitcoin2CN
